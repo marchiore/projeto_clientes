@@ -14,24 +14,20 @@ public class Clientes {
 	//@Column(name = "cod_tip_cliente")
 	private int cod_tip_cliente;
 	
-	public String getNome_cliente() {
+	public String getNomeCliente() {
 		return nome_cliente;
 	}
 
-	public void setNome_cliente(String nome_cliente) {
+	public void setNomeCliente(String nome_cliente) {
 		this.nome_cliente = nome_cliente;
 	}
 
-	public int getCod_tip_cliente() {
+	public int getCodTipCliente() {
 		return cod_tip_cliente;
 	}
 
-	public void setCod_tip_cliente(int cod_tip_cliente) {
+	public void setCodTipCliente(int cod_tip_cliente) {
 		this.cod_tip_cliente = cod_tip_cliente;
 	}
-
-	
-	
-	
 	
 }

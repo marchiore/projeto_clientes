@@ -1,0 +1,29 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+id="WebApp_ID" version="3.0">
+ <display-name>Projeto Clientes</display-name>
+ <login-config>
+  <auth-method>BASIC</auth-method>
+ </login-config>
+ <servlet>
+  <servlet-name>Jersey REST Service</servlet-name>
+  <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+  	<init-param>
+    	<param-name>com.sun.jersey.config.property.packages</param-name>
+    	<param-value>br.com.projetocliente.restfulws</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+ </servlet>
+ 
+ <servlet-mapping>
+ 	<servlet-name>Jersey REST Service</servlet-name>
+    <url-pattern>/ws/*</url-pattern>
+ </servlet-mapping>
+
+  <session-config>
+  	<session-timeout>130</session-timeout>
+  </session-config>
+</web-app>

@@ -12,5 +12,9 @@
 <property name="hbm2ddl.auto">update</property> 
 
 <mapping class="br.com.projetocliente.modelo.Clientes" />
+<mapping class="br.com.projetocliente.modelo.ClientesServicos" />
+<mapping class="br.com.projetocliente.modelo.Servicos" />
+<mapping class="br.com.projetocliente.modelo.TipoCliente" />
+
 </session-factory> </hibernate-configuration>
 
