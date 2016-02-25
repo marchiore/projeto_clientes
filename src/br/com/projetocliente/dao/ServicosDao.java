@@ -3,6 +3,7 @@ package br.com.projetocliente.dao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import br.com.projetocliente.modelo.Clientes;
 import br.com.projetocliente.modelo.Servicos;
 import br.com.projetocliente.util.SessionCreator;
 
@@ -31,5 +32,11 @@ public class ServicosDao {
 		Transaction tx = session.beginTransaction();
 	    session.delete(servicos);        
 	    tx.commit();
+	}
+	
+	public Servicos select(int idServico){
+		Servicos servico = (Servicos) session.load(Servicos.class, idServico);
+		
+		return servico;
 	}
 }

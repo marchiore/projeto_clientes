@@ -1,33 +1,43 @@
 package br.com.projetocliente.modelo;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
 public class Servicos {
     
 	@Id @GeneratedValue
-	private int id_servico;
+	@Column(name = "id_servico")
+	private int idServico;
 	
-	//@Column(name = "nome_cliente")
-	private String nome_servico;
+	@Column(name = "nome_servico")
+	private String nomeServico;
 	
-	//@Column(name = "cod_tip_cliente")
-	private double valor_servico;
+	@Column(name = "valor_servico")
+	private double valorServico;
 
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="idServico")
+	private List<ClientesServicos> listClientesServicos;
+	
+	public List<ClientesServicos> getListClientesServicos() {
+		return listClientesServicos;
+	}
+	
 	public String getNome_servico() {
-		return nome_servico;
+		return nomeServico;
 	}
 
 	public void setNomeServico(String nome_servico) {
-		this.nome_servico = nome_servico;
+		this.nomeServico = nome_servico;
 	}
 
 	public double getValorServico() {
-		return valor_servico;
+		return valorServico;
 	}
 
 	public void setValorservico(double valor_servico) {
-		this.valor_servico = valor_servico;
+		this.valorServico = valor_servico;
 	}
 		
 }

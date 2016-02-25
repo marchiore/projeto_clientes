@@ -4,48 +4,68 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+
 @Entity
+@Table(name="clientes_servicos")
 public class ClientesServicos {
     
 	@Id @GeneratedValue
-	private int id_cliente_servico;
+	@Column(name = "id_cliente_servico")
+	private int idClienteServico;
 	
-	private int id_cliente;
-	private int id_servico;
+	@Column(name = "id_cliente")
+	private int idCliente;
 	
-	private Date data_ini;
-	private Date data_fim;
-	private Date data_pagamento;
+	@Column(name = "id_servico")
+	private int idServico;
+	
+	@Column(name = "data_ini")
+	private Date dataIni;
+	
+	@Column(name = "data_fim")
+	private Date dataFim;
+	
+	@Column(name = "data_pagamento")
+	private Date datPagamento;
+	
+	@Transient
+	private int iDiasRestantes;
+	
+	public int getiDiasRestantes() {			
+		return Days.daysBetween(new DateTime(new Date()), new DateTime(this.getDataFim())).getDays();
+	}
 	
 	public int getIdCliente() {
-		return id_cliente;
+		return idCliente;
 	}
 	public void setIdCliente(int id_cliente) {
-		this.id_cliente = id_cliente;
+		this.idCliente = id_cliente;
 	}
 	public int getIdServico() {
-		return id_servico;
+		return idServico;
 	}
 	public void setIdServico(int id_servico) {
-		this.id_servico = id_servico;
+		this.idServico = id_servico;
 	}
 	public Date getDataIni() {
-		return data_ini;
+		return dataIni;
 	}
 	public void setDataIni(Date data_ini) {
-		this.data_ini = data_ini;
+		this.dataIni = data_ini;
 	}
 	public Date getDataFim() {
-		return data_fim;
+		return dataFim;
 	}
 	public void setDataFim(Date data_fim) {
-		this.data_fim = data_fim;
+		this.dataFim = data_fim;
 	}
 	public Date getDataPagamento() {
-		return data_pagamento;
+		return datPagamento;
 	}
 	public void setDataPagamento(Date data_pagamento) {
-		this.data_pagamento = data_pagamento;
+		this.datPagamento = data_pagamento;
 	}
 	
 }

@@ -1,13 +1,17 @@
 package br.com.projetocliente.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import br.com.projetocliente.modelo.Clientes;
+import br.com.projetocliente.modelo.ClientesServicos;
 import br.com.projetocliente.util.SessionCreator;
 
 public class ClienteDao {
 	private final Session session;
+	
 	public ClienteDao() {
 		this.session = SessionCreator.getSession();
 	}
@@ -32,4 +36,20 @@ public class ClienteDao {
 	    session.delete(cliente);        
 	    tx.commit();
 	}
+	
+	public Clientes select(int idCliente){
+		Clientes cliente = (Clientes) session.load(Clientes.class, idCliente);
+		
+		return cliente;
+	}
+	
+	public List<ClientesServicos> getServicos(int idCliente){
+		Clientes cliente = new ClienteDao().select(idCliente);
+		return cliente.getListClientesServicos();
+		
+//		for (ClientesServicos clientesServicos : listServicos) {
+//			System.out.println(clientesServicos.getDataIni());
+//		}		
+	}
+	
 }
