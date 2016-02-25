@@ -24,7 +24,7 @@ import br.com.projetocliente.services.ClientesServicosService;
 import br.com.projetocliente.services.ServicosService;
 import br.com.projetocliente.util.SessionCreator;
 
-public class AdicaoDeClientes {
+public class Testes {
 
 	public static void main(String[] args) {	
 
@@ -95,7 +95,7 @@ public class AdicaoDeClientes {
 		
 		//-Registrar que meu cliente contratou um serviço da minha empresa onde possa definir a data de início e de fim do serviço
 		ClientesServicosService objClientesServicosService = new ClientesServicosService();
-		objClientesServicosService.createClienteServicos(2, 1, new Date("01/01/2016"), new Date("01/11/2016"), new Date("01/07/2016"));
+		objClientesServicosService.createClienteServicos(2, 1, new Date("01/01/2016"), new Date("01/20/2016"), new Date("01/07/2016"));
 		
 		//- Visualizar quais serviços meu cliente tem contratado e quantos dias faltam para atingir a data final do serviço.
 		List<ClientesServicos> list = objClienteService.selecioanarServicos(2);
@@ -117,7 +117,7 @@ public class AdicaoDeClientes {
 		*/
 		
 		ClientesServicosService objService = new ClientesServicosService();
-		double dValorComDesc = objService.getValorComDescServico(1);
+		double dValorComDesc = objService.getValorComDescServico(9);
 		
 		System.out.println(dValorComDesc);
 		

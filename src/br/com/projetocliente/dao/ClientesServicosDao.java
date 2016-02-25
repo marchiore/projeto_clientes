@@ -76,11 +76,11 @@ private final Session session;
 		
 		int days = Days.daysBetween(new DateTime(clienteServico.getDataPagamento()), new DateTime(clienteServico.getDataFim())).getDays();
 		
-		if(days < 10){
+		if(clienteServico.getDataPagamento()!= null && days < 10){
 			//adiciona 5% de desconto no valor total
 			dPctDescCliente += 5;		
 		}					
-		
+		System.out.println("Aplicando Desconto de ->" + dPctDescCliente);
 		dValorServico = dValorTotalServico - (dPctDescCliente / 100) * dValorTotalServico;
 		
 		return dValorServico;
