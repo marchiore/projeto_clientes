@@ -17,6 +17,14 @@ public class ClienteService {
 	    new ClienteDao().save(cliente);	    
 	}
 	
+	public void updateCliente(String nome, int tipoCliente, int idCliente) {	
+	    new ClienteDao().update(nome, tipoCliente, idCliente);	    
+	}
+	
+	public void deleteCliente(int idCliente) {	
+	    new ClienteDao().delete(idCliente);	    
+	}
+	
 	public List<ClientesServicos> selecioanarServicos(int iCodCliente) {
 		return new ClienteDao().getServicos(iCodCliente);
 	}

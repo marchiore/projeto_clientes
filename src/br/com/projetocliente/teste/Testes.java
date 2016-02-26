@@ -89,6 +89,11 @@ public class Testes {
 		ClienteService objClienteService = new ClienteService();
 		objClienteService.createCliente("Lecom bauru", 1);
 		
+		//testando criação delete/update
+		objClienteService.createCliente("Saulo", 1);
+		objClienteService.updateCliente("Lincon", 1, 2);
+		objClienteService.deleteCliente(4);
+		
 		//- Cadastrar os serviços  que minha empresa oferece
 		ServicosService objServicosService = new ServicosService();
 		objServicosService.createServicos("Manutenção Alpha", 500.32);
@@ -120,11 +125,5 @@ public class Testes {
 		double dValorComDesc = objService.getValorComDescServico(9);
 		
 		System.out.println(dValorComDesc);
-		
-		
 	}
-
-
-
-	
 }

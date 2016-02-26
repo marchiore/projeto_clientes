@@ -24,14 +24,23 @@ public class ClienteDao {
 	}
 
 	//método para atualizar
-	public void update(Clientes cliente) {		
+	public void update(String nome, int tipoCliente, int idCliente) {	
+		
+		Clientes cliente = (Clientes) session.load(Clientes.class, idCliente);
+		cliente.setCodTipCliente(tipoCliente);
+		cliente.setNomeCliente(nome);
+		
 		Transaction tx = session.beginTransaction();
 	    session.update(cliente);        
 	    tx.commit();
+	    
 	}
 	
 	//método para atualizar
-	public void delete(Clientes cliente) {		
+	public void delete(int idCliente) {		
+		
+		Clientes cliente = (Clientes) session.load(Clientes.class, idCliente);
+		
 		Transaction tx = session.beginTransaction();
 	    session.delete(cliente);        
 	    tx.commit();
